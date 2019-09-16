@@ -9,8 +9,9 @@ import {
 import { Add as AddIcon } from '@material-ui/icons';
 
 import Form from './Form';
+import { withContext } from '../../context';
 
-export default class extends Component {
+class CreateDialog extends Component {
     state = {
         open: false
     };
@@ -63,4 +64,6 @@ export default class extends Component {
             </Dialog>
         </>
     };
-};
+}
+
+export default withContext(CreateDialog);

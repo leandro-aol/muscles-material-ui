@@ -3,6 +3,7 @@ import { CssBaseline } from "@material-ui/core";
 import { Header, Footer } from './components/layouts';
 import Exercises from './components/exercises';
 import { muscles, exercises } from './store';
+import { Provider } from './context';
 
 class App extends Component {
     state = {
@@ -28,7 +29,7 @@ class App extends Component {
         );
     }
 
-    handleCategorySelected = category => {
+    handleCategorySelect = category => {
         this.setState({
             category
         })
@@ -75,36 +76,28 @@ class App extends Component {
         }))
     };
 
-    render() {
-        const exercises = this.getExercisesByMuscle();
-        const { category, exercise, editMode } = this.state;
+    getContext = () => ({
+        muscles,
+        ...this.state,
+        exercisesByMuscles: this.getExercisesByMuscle(),
+        onCategorySelect: this.handleCategorySelect,
+        onCreate: this.handleExerciseCreate,
+        onEdit: this.handleExerciseEdit,
+        onSelectEdit: this.handleExerciseSelectEdit,
+        onDelete: this.handleExerciseDelete,
+        onSelect: this.handleExerciseSelect
+    });
 
-        return <>
+    render() {
+        return <Provider value={ this.getContext() }>
             <CssBaseline />
 
-            <Header
-                muscles={ muscles }
-                onExerciseCreate={ this.handleExerciseCreate }
-            />
+            <Header />
 
-            <Exercises
-                exercise={ exercise }
-                exercises={ exercises }
-                category={ category }
-                editMode={ editMode }
-                muscles={ muscles }
-                onSelect={ this.handleExerciseSelect }
-                onDelete={ this.handleExerciseDelete }
-                onSelectEdit={ this.handleExerciseSelectEdit }
-                onEdit={ this.handleExerciseEdit }
-            />
+            <Exercises />
 
-            <Footer
-                category={ category }
-                muscles={ muscles }
-                onSelect={ this.handleCategorySelected }
-            />
-        </>;
+            <Footer />
+        </Provider>;
     }
 }
 

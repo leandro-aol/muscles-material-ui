@@ -12,6 +12,7 @@ import {
 import { Delete, Edit } from '@material-ui/icons';
 
 import Form from './Form';
+import { withContext } from "../../context";
 
 const styles = theme => ({
     paper: {
@@ -45,22 +46,24 @@ const styles = theme => ({
     }
 });
 
-export default withStyles(styles)(
-    ({
-         classes,
-         muscles, exercises, category, editMode, onSelect, exercise,
-         exercise: {
-             id,
-             title = "Welcome!",
-             description = "Please select an exercise from the list on the left.",
-         },
-         onDelete, onSelectEdit, onEdit
-     }) => (
+const Exercises = (props) => {
+    const {
+        classes,
+        muscles, exercisesByMuscles, category, editMode, onSelect, exercise,
+        exercise: {
+            id,
+            title = "Welcome!",
+            description = "Please select an exercise from the list on the left.",
+        },
+        onDelete, onSelectEdit, onEdit
+    } = props;
+
+    return (
         <Grid container className={ classes.container }>
             <Grid item className={ classes.item } xs={ 12 } sm={ 6 }>
                 <Paper className={ classes.paper }>
                     {
-                        exercises.map(([ muscle, exercises ]) => (
+                        exercisesByMuscles.map(([ muscle, exercises ]) => (
                             !category || category === muscle
                                 ? (
                                     <Fragment key={ muscle }>
@@ -133,4 +136,7 @@ export default withStyles(styles)(
                 </Paper>
             </Grid>
         </Grid>
-    ));
+    )
+};
+
+export default withContext(withStyles(styles)(Exercises))

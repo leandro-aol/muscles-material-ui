@@ -1,6 +1,7 @@
 import React, { createContext } from 'react';
 
-export const { Provider, Consumer } = createContext();
+export const ExercisesContext= createContext();
+export const { Provider, Consumer } = ExercisesContext;
 
 export const withContext = Component =>
     props => <Consumer>

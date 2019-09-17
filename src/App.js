@@ -1,15 +1,43 @@
+// import React, { PureComponent } from 'react';
 import React, { Component } from 'react';
 import { CssBaseline } from "@material-ui/core";
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
+import { red, amber } from '@material-ui/core/colors';
+
 import { Header, Footer } from './components/layouts';
-import Exercises from './components/exercises';
+import { Viewer } from './components/exercises';
 import { muscles, exercises } from './store';
 import { Provider } from './context';
 
+const tema = {
+    palette: {
+        primary: red,
+        secondary: {
+            main: amber.A400,
+            light: amber[200],
+            dark: amber[700]
+        },
+        type: 'dark'
+    },
+    spacing: value => value * 10,
+};
+
+// class App extends PureComponent {
 class App extends Component {
     state = {
         exercises,
         exercise: {},
-        editMode: false
+        editMode: false,
+        category: '',
+        tema
+    };
+
+    handleToggleTheme = () => {
+        const newPaletteType = tema.palette.type === 'light' ? 'dark' : 'light';
+        const newState = this.state;
+
+        newState.tema.palette.type = newPaletteType;
+        this.setState(newState);
     };
 
     getExercisesByMuscle() {
@@ -85,19 +113,26 @@ class App extends Component {
         onEdit: this.handleExerciseEdit,
         onSelectEdit: this.handleExerciseSelectEdit,
         onDelete: this.handleExerciseDelete,
-        onSelect: this.handleExerciseSelect
+        onSelect: this.handleExerciseSelect,
+        toggleTheme: this.handleToggleTheme,
     });
 
     render() {
-        return <Provider value={ this.getContext() }>
-            <CssBaseline />
+        const muiTheme = createMuiTheme(this.state.tema);
 
-            <Header />
+        return (
+            <MuiThemeProvider theme={ muiTheme }>
+                <Provider value={ this.getContext() }>
+                    <CssBaseline />
 
-            <Exercises />
+                    <Header />
 
-            <Footer />
-        </Provider>;
+                    <Viewer />
+
+                    <Footer />
+                </Provider>
+            </MuiThemeProvider>
+        );
     }
 }
 

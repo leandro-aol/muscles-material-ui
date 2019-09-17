@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
-import {
-    Dialog,
-    DialogContent,
-    DialogContentText,
-    DialogTitle,
-    Fab
-} from '@material-ui/core';
+import { Dialog as MuiDialog, DialogContent, DialogContentText, DialogTitle, Fab } from '@material-ui/core';
 import { Add as AddIcon } from '@material-ui/icons';
 
-import Form from './Form';
-import { withContext } from '../../context';
+import { ExercisesContext } from '../../context';
+import { Form } from './';
 
-class CreateDialog extends Component {
+class Dialog extends Component {
+    static contextType = ExercisesContext;
+
     state = {
         open: false
     };
@@ -30,7 +26,7 @@ class CreateDialog extends Component {
 
     render() {
         const { open } = this.state;
-        const { muscles } = this.props;
+        const { muscles } = this.context;
 
         return <>
             <Fab
@@ -41,7 +37,7 @@ class CreateDialog extends Component {
                 <AddIcon />
             </Fab>
 
-            <Dialog
+            <MuiDialog
                 open={ open }
                 onClose={ this.handleToggle }
                 fullWidth
@@ -61,9 +57,9 @@ class CreateDialog extends Component {
                         onSubmit={ this.handleFormSubmit }
                     />
                 </DialogContent>
-            </Dialog>
+            </MuiDialog>
         </>
     };
 }
 
-export default withContext(CreateDialog);
+export default Dialog;

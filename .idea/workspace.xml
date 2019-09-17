@@ -2,13 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff7e4eb5-5116-4998-af04-e9127df3a9e5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/context.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/loliveira.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/exercises/Catalog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/exercises/Preview.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/exercises/Viewer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/exercises/Dialog.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/exercises/Dialog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/exercises/Form.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/exercises/Form.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/exercises/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/exercises/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layouts/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layouts/Footer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/layouts/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layouts/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/layouts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/layouts/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/context.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/context.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +91,7 @@
       <workItem from="1568129254459" duration="7392000" />
       <workItem from="1568199934996" duration="8553000" />
       <workItem from="1568228761740" duration="8384000" />
-      <workItem from="1568635392942" duration="14857000" />
+      <workItem from="1568635392942" duration="29186000" />
     </task>
     <servers />
   </component>
